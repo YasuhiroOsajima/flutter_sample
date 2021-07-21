@@ -24,9 +24,7 @@ void main() {
           create: (context) => row_selected.RowSelected(),
         ),
       ],
-      child: MaterialApp(
-        home: MyApp(),
-      ),
+      child: MyApp(),
     ),
   );
 }
@@ -36,10 +34,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MyApp',
+      title: 'Sample',
       theme: ThemeData(
         primaryColor: Colors.grey,
-        accentColor: Colors.cyan[600],
         fontFamily: 'Georgia',
         textTheme: const TextTheme(bodyText2: TextStyle(color: Colors.purple)),
       ),

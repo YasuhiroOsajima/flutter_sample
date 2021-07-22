@@ -7,7 +7,7 @@ class Descriptiona extends StatelessWidget {
       height: MediaQuery.of(context).size.width * 0.3,
       width: MediaQuery.of(context).size.width * 0.6,
       child: Text(
-        'Hello, World!',
+        'Member list1',
         style: TextStyle(fontSize: 30),
       ),
     );

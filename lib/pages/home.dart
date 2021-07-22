@@ -9,6 +9,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        // For unforcusing by search box.
         final FocusScopeNode currentScope = FocusScope.of(context);
         if (!currentScope.hasPrimaryFocus && currentScope.hasFocus) {
           FocusManager.instance.primaryFocus!.unfocus();

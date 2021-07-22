@@ -21,6 +21,7 @@ class MyDataTable extends StatelessWidget {
     final pageMaxRows = 7;
 
     return PaginatedDataTable(
+      arrowHeadColor: Colors.black,
       source: _mySource,
       showCheckboxColumn: true,
       rowsPerPage:

@@ -15,18 +15,17 @@ class SearchSpace extends StatelessWidget {
         padding: EdgeInsets.only(right: 10.0),
         child: DropdownButton<String>(
           value: selectedKey,
-          itemHeight: 92.0,
+          //itemHeight: 92.0,
+          itemHeight: 46.0,
           icon: Icon(Icons.arrow_drop_down),
           iconSize: 30,
           elevation: 8,
-          style: TextStyle(fontSize: 20, color: Colors.black),
-          underline: Container(
-            height: 1,
-            color: Colors.grey,
-          ),
+          style: TextStyle(fontSize: 15, color: Colors.black),
+          underline: Container(),
           onChanged: (newValue) {
-            var _table_search = context.read<table_search.TableSearch>();
-            _table_search.setSelectedKey(newValue.toString());
+            context
+                .read<table_search.TableSearch>()
+                .setSelectedKey(newValue.toString());
           },
           items: table_search.FilterType.map<DropdownMenuItem<String>>(
               (String value) {
@@ -38,18 +37,19 @@ class SearchSpace extends StatelessWidget {
         ),
       ),
       Container(
-          padding: EdgeInsets.only(right: 50.0),
+          padding: EdgeInsets.only(right: 50.0, bottom: 15.0),
+          // margin: EdgeInsets.only(bottom: 15.0),
           width: 200.0,
           child: TextField(
             decoration: InputDecoration(
-              labelText: 'Search',
+              //labelText: 'Search',
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.grey),
               ),
             ),
             style: new TextStyle(
-              fontSize: 20.0,
-              height: 2.0,
+              fontSize: 15.0,
+              //height: 2.0,
               color: Colors.black,
             ),
             onChanged: (String event) {

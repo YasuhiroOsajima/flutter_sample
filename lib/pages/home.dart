@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/drawer.dart' as drawer;
-import '../widgets/datatable.dart' as datatable;
-import '../widgets/search.dart' as search;
+import '../widgets/table_area.dart' as table_area;
+import '../widgets/description_area.dart' as description_area;
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -16,32 +16,22 @@ class MyHomePage extends StatelessWidget {
       },
       child: Scaffold(
           appBar: AppBar(
-            title: const Text('Members List'),
+            title: const Text(
+              'Members List',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
           drawer: drawer.CustomDrawer(),
           body: Row(
             children: <Widget>[
               Expanded(
-                  flex: 7,
-                  child: Column(
-                    children: <Widget>[
-                      search.SearchSpace(),
-                      SizedBox(
-                        width: double.infinity,
-                        child: datatable.MyDataTable(),
-                      ),
-                    ],
-                  )),
+                flex: 7,
+                child: table_area.TableArea(),
+              ),
               Expanded(
-                  flex: 3,
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Hello, World!',
-                        style: TextStyle(fontSize: 40),
-                      ),
-                    ],
-                  )),
+                flex: 3,
+                child: description_area.DescriptionArea(),
+              ),
             ],
           )),
     );

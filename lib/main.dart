@@ -36,8 +36,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Sample',
       theme: ThemeData(
-        primaryColor: Colors.grey,
-        fontFamily: 'Georgia',
+        primarySwatch: Colors.grey,
         textTheme: const TextTheme(bodyText2: TextStyle(color: Colors.purple)),
       ),
       home: home.MyHomePage(),

@@ -8,18 +8,21 @@ class DescriptionArea extends StatelessWidget {
     return Column(
       children: <Widget>[
         Expanded(
-            flex: 3,
-            child: Container(
-                decoration: myboxdecoration.MyBoxDecoration(),
-                margin: EdgeInsets.only(top: 5.0, left: 5.0),
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.width * 0.3,
-                  width: MediaQuery.of(context).size.width * 0.6,
-                  child: Text(
-                    'Hello, World!',
-                    style: TextStyle(fontSize: 40),
-                  ),
-                ))),
+          flex: 3,
+          child: Container(
+            decoration: myboxdecoration.MyBoxDecoration(),
+            margin: EdgeInsets.only(top: 5.0, left: 5.0),
+            padding: EdgeInsets.all(20.0),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.width * 0.3,
+              width: MediaQuery.of(context).size.width * 0.6,
+              child: Text(
+                'Hello, World!',
+                style: TextStyle(fontSize: 30),
+              ),
+            ),
+          ),
+        ),
         Expanded(
             flex: 7,
             child: Container(

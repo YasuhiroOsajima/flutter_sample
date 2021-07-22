@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../style/myboxdecoration.dart' as myboxdecoration;
-import '../widgets/search.dart' as search;
+import 'search_space.dart' as search;
 import '../widgets/datatable.dart' as datatable;
 
 class TableArea extends StatelessWidget {

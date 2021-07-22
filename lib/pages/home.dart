@@ -25,6 +25,35 @@ class MyHomePage extends StatelessWidget {
               color: Colors.white,
             ),
           ),
+          actions: <Widget>[
+            Container(
+              margin: EdgeInsets.only(right: 15.0),
+              padding: EdgeInsets.all(10.0),
+              child: OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  primary: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  side: const BorderSide(),
+                ),
+                child: Text(
+                  'Logout',
+                  style: TextStyle(fontSize: 15, color: Colors.white),
+                ),
+                onPressed: () {},
+              ),
+              //child: IconButton(
+              //  icon: Icon(Icons.account_box, color: Colors.black),
+              //  iconSize: 40,
+              //  //label: Text(
+              //  //  'Account',
+              //  //  style: TextStyle(fontSize: 10, color: Colors.white),
+              //  //),
+              //  onPressed: () {},
+              //),
+            ),
+          ],
         ),
         drawer: drawer.CustomDrawer(),
         body: Row(

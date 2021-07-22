@@ -9,16 +9,19 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
-            child: Text(
-              'My App',
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.white,
+          Container(
+            height: 80.0,
+            child: DrawerHeader(
+              child: Text(
+                'My App',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            decoration: BoxDecoration(
-              color: Colors.grey,
+              decoration: BoxDecoration(
+                color: Colors.grey,
+              ),
             ),
           ),
           ListTile(

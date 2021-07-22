@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../style/myboxdecoration.dart' as myboxdecoration;
+import '../widgets/description.dart' as description;
 
 class DescriptionArea extends StatelessWidget {
   @override
@@ -13,14 +14,7 @@ class DescriptionArea extends StatelessWidget {
             decoration: myboxdecoration.MyBoxDecoration(),
             margin: EdgeInsets.only(top: 5.0, left: 5.0),
             padding: EdgeInsets.all(20.0),
-            child: SizedBox(
-              height: MediaQuery.of(context).size.width * 0.3,
-              width: MediaQuery.of(context).size.width * 0.6,
-              child: Text(
-                'Hello, World!',
-                style: TextStyle(fontSize: 30),
-              ),
-            ),
+            child: description.Descriptiona(),
           ),
         ),
         Expanded(

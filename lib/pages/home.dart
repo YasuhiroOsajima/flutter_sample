@@ -5,6 +5,8 @@ import '../widgets/table_area.dart' as table_area;
 import '../widgets/description_area.dart' as description_area;
 
 class MyHomePage extends StatelessWidget {
+  static const String routeName = '/homePage';
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

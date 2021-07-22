@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'pages/home.dart' as home;
 import 'states/members.dart' as members;
 import 'states/row_selected.dart' as row_selected;
 import 'states/table_sort.dart' as table_sort;
 import 'states/table_search.dart' as table_search;
+import 'routes.dart' as routes;
 
 void main() {
   runApp(
@@ -39,7 +39,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
         textTheme: const TextTheme(bodyText2: TextStyle(color: Colors.purple)),
       ),
-      home: home.MyHomePage(),
+      //home: home.MyHomePage(),
+      initialRoute: '/',
+      routes: routes.pageRoutes,
     );
   }
 }

@@ -16,7 +16,34 @@ class MyButtons extends StatelessWidget {
                 primary: Colors.orange,
                 onPrimary: Colors.white,
               ),
-              onPressed: () {},
+              onPressed: () async {
+                var result = await showDialog<int>(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text('確認'),
+                      content: Text('確認のダイアログです。'),
+                      actions: <Widget>[
+                        OutlinedButton(
+                          child: const Text('Cancel'),
+                          style: OutlinedButton.styleFrom(
+                            primary: Colors.black,
+                          ),
+                          onPressed: () => Navigator.of(context).pop(0),
+                        ),
+                        OutlinedButton(
+                          child: const Text('OK'),
+                          style: OutlinedButton.styleFrom(
+                            primary: Colors.black,
+                          ),
+                          onPressed: () => Navigator.of(context).pop(0),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
             ),
           ),
           Container(

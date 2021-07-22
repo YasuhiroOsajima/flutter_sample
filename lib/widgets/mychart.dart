@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class SearchSpace extends StatelessWidget {
+class MyChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<ChartData> chartData = [

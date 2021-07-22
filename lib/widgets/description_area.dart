@@ -24,7 +24,7 @@ class DescriptionArea extends StatelessWidget {
             decoration: myboxdecoration.MyBoxDecoration(),
             margin: EdgeInsets.only(top: 5.0, left: 5.0, bottom: 10.0),
             child: Center(
-              child: mychart.SearchSpace(),
+              child: mychart.MyChart(),
             ),
           ),
         ),

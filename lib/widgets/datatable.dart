@@ -31,7 +31,9 @@ class MyDataTable extends StatelessWidget {
         DataColumn(
             label: Text(
               'Name',
-              style: TextStyle(fontStyle: FontStyle.italic),
+              style: TextStyle(
+                fontStyle: FontStyle.italic,
+              ),
             ),
             onSort: (columnIndex, ascending) {
               var _tableSort = context.read<table_sort.TableSort>();

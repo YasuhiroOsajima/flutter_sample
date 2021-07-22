@@ -7,22 +7,28 @@ import '../widgets/datatable.dart' as datatable;
 class TableArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      Expanded(
+    return Column(
+      children: <Widget>[
+        Expanded(
           flex: 1,
           child: Container(
-              decoration: myboxdecoration.MyBoxDecoration(),
-              margin: EdgeInsets.only(top: 5.0),
-              child: search.SearchSpace())),
-      Expanded(
+            decoration: myboxdecoration.MyBoxDecoration(),
+            margin: EdgeInsets.only(top: 5.0),
+            child: search.SearchSpace(),
+          ),
+        ),
+        Expanded(
           flex: 9,
           child: Container(
-              decoration: myboxdecoration.MyBoxDecoration(),
-              margin: EdgeInsets.only(top: 5.0, bottom: 10.0),
-              child: SizedBox(
-                width: double.infinity,
-                child: datatable.MyDataTable(),
-              ))),
-    ]);
+            decoration: myboxdecoration.MyBoxDecoration(),
+            margin: EdgeInsets.only(top: 5.0, bottom: 10.0),
+            child: SizedBox(
+              width: double.infinity,
+              child: datatable.MyDataTable(),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }

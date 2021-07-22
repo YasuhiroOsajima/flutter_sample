@@ -15,25 +15,28 @@ class MyHomePage extends StatelessWidget {
         }
       },
       child: Scaffold(
-          appBar: AppBar(
-            title: const Text(
-              'Members List',
-              style: TextStyle(color: Colors.white),
+        appBar: AppBar(
+          title: const Text(
+            'Members List',
+            style: TextStyle(
+              color: Colors.white,
             ),
           ),
-          drawer: drawer.CustomDrawer(),
-          body: Row(
-            children: <Widget>[
-              Expanded(
-                flex: 7,
-                child: table_area.TableArea(),
-              ),
-              Expanded(
-                flex: 3,
-                child: description_area.DescriptionArea(),
-              ),
-            ],
-          )),
+        ),
+        drawer: drawer.CustomDrawer(),
+        body: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 7,
+              child: table_area.TableArea(),
+            ),
+            Expanded(
+              flex: 3,
+              child: description_area.DescriptionArea(),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -32,45 +32,47 @@ class MySearch extends StatelessWidget {
                     .setSelectedKey(newValue.toString());
               },
               items: table_search.FilterType.map<DropdownMenuItem<String>>(
-                  (String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
+                (String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                },
+              ).toList(),
             ),
           ),
           Container(
-              padding: EdgeInsets.only(right: 50.0, bottom: 15.0),
-              // margin: EdgeInsets.only(bottom: 15.0),
-              width: 200.0,
-              child: TextField(
-                decoration: InputDecoration(
-                  //labelText: 'Search',
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                  ),
+            padding: EdgeInsets.only(right: 50.0, bottom: 15.0),
+            // margin: EdgeInsets.only(bottom: 15.0),
+            width: 200.0,
+            child: TextField(
+              decoration: InputDecoration(
+                //labelText: 'Search',
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey),
                 ),
-                style: new TextStyle(
-                  fontSize: 15.0,
-                  //height: 2.0,
-                  color: Colors.black,
-                ),
-                onChanged: (String event) {
-                  var memberListen = context.read<members.Members>();
-                  if (event.isEmpty) {
-                    memberListen.refresh();
-                  } else {
-                    if (selectedKey == "Name") {
-                      memberListen.setNameFilterdMembers(event);
-                    } else if (selectedKey == "Age") {
-                      memberListen.setAgeFilterdMembers(event);
-                    } else if (selectedKey == "Role") {
-                      memberListen.setJobFilterdMembers(event);
-                    }
+              ),
+              style: new TextStyle(
+                fontSize: 15.0,
+                //height: 2.0,
+                color: Colors.black,
+              ),
+              onChanged: (String event) {
+                var memberListen = context.read<members.Members>();
+                if (event.isEmpty) {
+                  memberListen.refresh();
+                } else {
+                  if (selectedKey == "Name") {
+                    memberListen.setNameFilterdMembers(event);
+                  } else if (selectedKey == "Age") {
+                    memberListen.setAgeFilterdMembers(event);
+                  } else if (selectedKey == "Role") {
+                    memberListen.setJobFilterdMembers(event);
                   }
-                },
-              )),
+                }
+              },
+            ),
+          ),
         ],
       ),
     );

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
-const FilterType = <String>['Name', 'Age', 'Role'];
+const FilterType = <String>[
+  'Name',
+  'Age',
+  'Role',
+];
 
 class TableSearch with ChangeNotifier {
   String selectedKey = FilterType[0];

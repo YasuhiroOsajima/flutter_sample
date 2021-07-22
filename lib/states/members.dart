@@ -23,11 +23,13 @@ class Members with ChangeNotifier {
   }
 
   void refresh() {
-    _loadMock().then((memberObjList) {
-      this.memberList = memberObjList;
-      this.originList = this.memberList;
-      notifyListeners();
-    });
+    _loadMock().then(
+      (memberObjList) {
+        this.memberList = memberObjList;
+        this.originList = this.memberList;
+        notifyListeners();
+      },
+    );
   }
 
   void setNameFilterdMembers(String name) {

@@ -24,11 +24,12 @@ class DescriptionArea extends StatelessWidget {
           ),
         ),
         Expanded(
-            flex: 7,
-            child: Container(
-              decoration: myboxdecoration.MyBoxDecoration(),
-              margin: EdgeInsets.only(top: 5.0, left: 5.0, bottom: 10.0),
-            )),
+          flex: 7,
+          child: Container(
+            decoration: myboxdecoration.MyBoxDecoration(),
+            margin: EdgeInsets.only(top: 5.0, left: 5.0, bottom: 10.0),
+          ),
+        ),
       ],
     );
   }

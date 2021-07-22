@@ -7,12 +7,17 @@ class RowSelected with ChangeNotifier {
     return this.selectedIndex.contains(index);
   }
 
+  int selectedCount() {
+    return this.selectedIndex.length;
+  }
+
   void setSelectedIndex(int idx) {
     if (this.selectedIndex.contains(idx)) {
       this.selectedIndex.remove(idx);
     } else {
       this.selectedIndex.add(idx);
     }
+    this.selectedIndex.sort();
     notifyListeners();
   }
 }

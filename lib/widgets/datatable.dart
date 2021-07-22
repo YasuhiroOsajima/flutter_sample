@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../models/member.dart' as member;
 import '../states/members.dart' as members;
 import '../states/row_selected.dart' as row_selected;
 import '../states/table_sort.dart' as table_sort;
@@ -16,35 +17,16 @@ class MyDataTable extends StatelessWidget {
     final _isAscending =
         context.select((table_sort.TableSort store) => store.isAscending);
 
-    List<DataRow> parseRows() {
-      List<DataRow> memberRows = [];
-      _memberList.asMap().forEach(
-            (index, element) => memberRows.add(
-              DataRow(
-                selected: context.select((row_selected.RowSelected selected) =>
-                    selected.isSelected(index)),
-                onSelectChanged: (bool? _selected) {
-                  var _row_selected_obj =
-                      context.read<row_selected.RowSelected>();
-                  _row_selected_obj.setSelectedIndex(index);
-                },
-                cells: <DataCell>[
-                  DataCell(Container(width: 150, child: Text(element.name))),
-                  DataCell(Container(
-                      width: 50, child: Text(element.age.toString()))),
-                  DataCell(Container(width: 150, child: Text(element.job))),
-                ],
-              ),
-            ),
-          );
+    SampleDataSource _mySource = SampleDataSource(_memberList, context);
+    final pageMaxRows = 7;
 
-      return memberRows;
-    }
-
-    return DataTable(
+    return PaginatedDataTable(
+      source: _mySource,
+      showCheckboxColumn: true,
+      rowsPerPage:
+          (_memberList.length < pageMaxRows) ? _memberList.length : pageMaxRows,
       sortColumnIndex: _currentSortColumn,
       sortAscending: _isAscending,
-      showCheckboxColumn: true,
       columns: <DataColumn>[
         DataColumn(
             label: Text(
@@ -52,9 +34,9 @@ class MyDataTable extends StatelessWidget {
               style: TextStyle(fontStyle: FontStyle.italic),
             ),
             onSort: (columnIndex, ascending) {
-              var _table_sort = context.read<table_sort.TableSort>();
-              _table_sort.setSortColumn(columnIndex);
-              _table_sort.setAscending(ascending);
+              var _tableSort = context.read<table_sort.TableSort>();
+              _tableSort.setSortColumn(columnIndex);
+              _tableSort.setAscending(ascending);
 
               if (columnIndex == 0) {
                 if (ascending) {
@@ -77,7 +59,44 @@ class MyDataTable extends StatelessWidget {
           ),
         ),
       ],
-      rows: parseRows(),
     );
   }
+}
+
+class SampleDataSource extends DataTableSource {
+  List<member.Member> _membersList = <member.Member>[];
+  final BuildContext context;
+
+  SampleDataSource(this._membersList, this.context);
+
+  @override
+  DataRow getRow(int index) {
+    final _selected =
+        context.select((row_selected.RowSelected store) => store.selectedIndex);
+
+    final member.Member _member = _membersList[index];
+
+    return DataRow.byIndex(
+      index: index,
+      selected: _selected.contains(index),
+      onSelectChanged: (bool? _selected) {
+        context.read<row_selected.RowSelected>().setSelectedIndex(index);
+      },
+      cells: <DataCell>[
+        DataCell(Container(width: 150, child: Text(_member.name))),
+        DataCell(Container(width: 50, child: Text(_member.age.toString()))),
+        DataCell(Container(width: 150, child: Text(_member.job))),
+      ],
+    );
+  }
+
+  @override
+  bool get isRowCountApproximate => false;
+
+  @override
+  int get rowCount => _membersList.length;
+
+  @override
+  int get selectedRowCount => context
+      .select((row_selected.RowSelected selected) => selected.selectedCount());
 }

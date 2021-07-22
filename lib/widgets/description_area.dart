@@ -24,7 +24,7 @@ class DescriptionArea extends StatelessWidget {
             flex: 7,
             child: Container(
               decoration: myboxdecoration.MyBoxDecoration(),
-              margin: EdgeInsets.only(top: 5.0, left: 5.0),
+              margin: EdgeInsets.only(top: 5.0, left: 5.0, bottom: 10.0),
             )),
       ],
     );

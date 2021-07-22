@@ -9,18 +9,18 @@ class TableArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
       Expanded(
-          flex: 2,
+          flex: 1,
           child: Container(
               decoration: myboxdecoration.MyBoxDecoration(),
               margin: EdgeInsets.only(top: 5.0),
               child: search.SearchSpace())),
       Expanded(
-          flex: 8,
+          flex: 9,
           child: Container(
               decoration: myboxdecoration.MyBoxDecoration(),
               margin: EdgeInsets.only(top: 5.0, bottom: 10.0),
               child: SizedBox(
-                width: MediaQuery.of(context).size.width * 1.0,
+                width: double.infinity,
                 child: datatable.MyDataTable(),
               ))),
     ]);

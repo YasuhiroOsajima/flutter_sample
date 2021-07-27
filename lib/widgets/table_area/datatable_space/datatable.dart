@@ -10,20 +10,20 @@ import '../../../states/table_area/table_sort.dart' as table_sort;
 class MyDataTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Rows
     final _memberList =
         context.select((members.Members store) => store.memberList);
+    final pageMaxRows = 7;
+
+    // Sort
+    final _tableSort = context.read<table_sort.TableSort>();
     final _currentSortColumn =
         context.select((table_sort.TableSort store) => store.currentSortColumn);
     final _isAscending =
         context.select((table_sort.TableSort store) => store.isAscending);
 
-    SampleDataSource _mySource = SampleDataSource(_memberList, context);
-
-    final pageMaxRows = 7;
-
     return PaginatedDataTable(
       arrowHeadColor: Colors.black,
-      source: _mySource,
       showCheckboxColumn: true,
       rowsPerPage:
           (_memberList.length < pageMaxRows) ? _memberList.length : pageMaxRows,
@@ -38,7 +38,6 @@ class MyDataTable extends StatelessWidget {
               ),
             ),
             onSort: (columnIndex, ascending) {
-              var _tableSort = context.read<table_sort.TableSort>();
               _tableSort.setSortColumn(columnIndex);
               _tableSort.setAscending(ascending);
 
@@ -54,7 +53,6 @@ class MyDataTable extends StatelessWidget {
               style: TextStyle(fontStyle: FontStyle.italic),
             ),
             onSort: (columnIndex, ascending) {
-              var _tableSort = context.read<table_sort.TableSort>();
               _tableSort.setSortColumn(columnIndex);
               _tableSort.setAscending(ascending);
 
@@ -70,7 +68,6 @@ class MyDataTable extends StatelessWidget {
               style: TextStyle(fontStyle: FontStyle.italic),
             ),
             onSort: (columnIndex, ascending) {
-              var _tableSort = context.read<table_sort.TableSort>();
               _tableSort.setSortColumn(columnIndex);
               _tableSort.setAscending(ascending);
 
@@ -81,22 +78,23 @@ class MyDataTable extends StatelessWidget {
               }
             }),
       ],
+      source: MembersDataSource(_memberList, context),
     );
   }
 }
 
-class SampleDataSource extends DataTableSource {
+class MembersDataSource extends DataTableSource {
   List<member.Member> _membersList = <member.Member>[];
   final BuildContext context;
 
-  SampleDataSource(this._membersList, this.context);
+  MembersDataSource(this._membersList, this.context);
 
   @override
   DataRow getRow(int index) {
+    final member.Member _member = _membersList[index];
+
     final _selected =
         context.select((row_selected.RowSelected store) => store.selectedIndex);
-
-    final member.Member _member = _membersList[index];
 
     return DataRow.byIndex(
       index: index,

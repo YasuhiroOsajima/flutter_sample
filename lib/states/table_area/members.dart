@@ -6,7 +6,7 @@ import '../../mock.dart' as mockJson;
 
 class Members with ChangeNotifier {
   List<member.Member> memberList = [];
-  List<member.Member> originList = [];
+  List<member.Member> _originList = [];
 
   Members() {
     this.refresh();
@@ -26,21 +26,21 @@ class Members with ChangeNotifier {
     _loadMock().then(
       (memberObjList) {
         this.memberList = memberObjList;
-        this.originList = this.memberList;
+        this._originList = this.memberList;
         notifyListeners();
       },
     );
   }
 
   void setNameFilterdMembers(String name) {
-    var memberObjList = this.originList;
+    var memberObjList = this._originList;
     this.memberList =
         memberObjList.where((element) => element.name.contains(name)).toList();
     notifyListeners();
   }
 
   void setAgeFilterdMembers(String age) {
-    var memberObjList = this.originList;
+    var memberObjList = this._originList;
     this.memberList = memberObjList
         .where((element) => element.age.toString().contains(age))
         .toList();
@@ -48,7 +48,7 @@ class Members with ChangeNotifier {
   }
 
   void setJobFilterdMembers(String job) {
-    var memberObjList = this.originList;
+    var memberObjList = this._originList;
     this.memberList =
         memberObjList.where((element) => element.job.contains(job)).toList();
     notifyListeners();

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../models/member.dart' as member;
-import '../../states/table_area/members.dart' as members;
-import '../../states/table_area/row_selected.dart' as row_selected;
-import '../../states/table_area/table_sort.dart' as table_sort;
+import '../../../models/member.dart' as member;
+import '../../../states/table_area/members.dart' as members;
+import '../../../states/table_area/row_selected.dart' as row_selected;
+import '../../../states/table_area/table_sort.dart' as table_sort;
 
 // DataTable
 class MyDataTable extends StatelessWidget {
@@ -18,6 +18,7 @@ class MyDataTable extends StatelessWidget {
         context.select((table_sort.TableSort store) => store.isAscending);
 
     SampleDataSource _mySource = SampleDataSource(_memberList, context);
+
     final pageMaxRows = 7;
 
     return PaginatedDataTable(
@@ -41,26 +42,44 @@ class MyDataTable extends StatelessWidget {
               _tableSort.setSortColumn(columnIndex);
               _tableSort.setAscending(ascending);
 
-              if (columnIndex == 0) {
-                if (ascending) {
-                  _memberList.sort((a, b) => a.name.compareTo(b.name));
-                } else {
-                  _memberList.sort((a, b) => b.name.compareTo(a.name));
-                }
+              if (ascending) {
+                _memberList.sort((a, b) => a.name.compareTo(b.name));
+              } else {
+                _memberList.sort((a, b) => b.name.compareTo(a.name));
               }
             }),
         DataColumn(
-          label: Text(
-            'Age',
-            style: TextStyle(fontStyle: FontStyle.italic),
-          ),
-        ),
+            label: Text(
+              'Age',
+              style: TextStyle(fontStyle: FontStyle.italic),
+            ),
+            onSort: (columnIndex, ascending) {
+              var _tableSort = context.read<table_sort.TableSort>();
+              _tableSort.setSortColumn(columnIndex);
+              _tableSort.setAscending(ascending);
+
+              if (ascending) {
+                _memberList.sort((a, b) => a.age.compareTo(b.age));
+              } else {
+                _memberList.sort((a, b) => b.age.compareTo(a.age));
+              }
+            }),
         DataColumn(
-          label: Text(
-            'Role',
-            style: TextStyle(fontStyle: FontStyle.italic),
-          ),
-        ),
+            label: Text(
+              'Role',
+              style: TextStyle(fontStyle: FontStyle.italic),
+            ),
+            onSort: (columnIndex, ascending) {
+              var _tableSort = context.read<table_sort.TableSort>();
+              _tableSort.setSortColumn(columnIndex);
+              _tableSort.setAscending(ascending);
+
+              if (ascending) {
+                _memberList.sort((a, b) => a.job.compareTo(b.job));
+              } else {
+                _memberList.sort((a, b) => b.job.compareTo(a.job));
+              }
+            }),
       ],
     );
   }

@@ -4,6 +4,7 @@ import '../widgets/drawer.dart' as drawer;
 import '../widgets/logout_button.dart' as logout_button;
 import '../widgets/table_area/table_area.dart' as table_area;
 import '../widgets/description_area/description_area.dart' as description_area;
+import '../layout.dart' as layout;
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -32,11 +33,11 @@ class MyHomePage extends StatelessWidget {
         body: Row(
           children: <Widget>[
             Expanded(
-              flex: 7,
+              flex: layout.tableAreaWidth,
               child: table_area.TableArea(),
             ),
             Expanded(
-              flex: 3,
+              flex: layout.descriptionAreaWidth,
               child: description_area.DescriptionArea(),
             ),
           ],

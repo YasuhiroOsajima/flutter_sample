@@ -7,3 +7,14 @@ var members = '''
   ]
 }
 ''';
+
+var chart = '''
+{
+  "chart": [
+    {"name": "David", "value": 25.0},
+    {"name": "Steve", "value": 38.0},
+    {"name": "Jack", "value": 34.0},
+    {"name": "Others", "value": 52.0}
+  ]
+}
+''';

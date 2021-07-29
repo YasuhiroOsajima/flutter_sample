@@ -5,7 +5,6 @@ import 'states/table_area/members.dart' as members;
 import 'states/table_area/row_selected.dart' as row_selected;
 import 'states/table_area/table_sort.dart' as table_sort;
 import 'states/table_area/table_search.dart' as table_search;
-import 'states/description_area/chart.dart' as chart;
 import 'routes.dart' as routes;
 
 void main() {
@@ -23,9 +22,6 @@ void main() {
         ),
         ChangeNotifierProvider<row_selected.RowSelected>(
           create: (context) => row_selected.RowSelected(),
-        ),
-        ChangeNotifierProvider<chart.ChaerDataList>(
-          create: (context) => chart.ChaerDataList(),
         ),
       ],
       child: MyApp(),

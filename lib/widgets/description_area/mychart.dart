@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'dart:convert';
 
-import '../../states/description_area/chart.dart' as chart_data;
 import '../../models/chart.dart' as chart;
 import '../../mock.dart' as mockJson;
+
+class ChartData {
+  ChartData(this.x, this.y, this.color);
+  final String x;
+  final double y;
+  final Color color;
+}
 
 class MyChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // final _chartDataList =
-    //     context.select((chart_data.ChaerDataList store) => store.chartDataList);
-
-    //debugPrint(_chartDataList2.toString());
-
     Future<List<chart.Chart>> _loadMock() async {
       Map<String, dynamic> chartMap = await jsonDecode(mockJson.chart);
 
@@ -25,47 +25,44 @@ class MyChart extends StatelessWidget {
       return chartValueList;
     }
 
-    // void refresh() {
-    //   _loadMock().then(
-    //     (chartValueList) {
-    //       this._chartDataList = chartValueList
-    //           .map((chartValue) => chart_data.ChartData(
-    //               chartValue.name, chartValue.value, Colors.blue))
-    //           .toList();
-    //     },
-    //   );
-    // }
-    Future<List<chart_data.ChartData>> refresh() async {
+    Future<List<ChartData>> refresh() async {
       var chartValueList = await _loadMock();
       var chartDataList = chartValueList
-          .map((chartValue) => chart_data.ChartData(
-              chartValue.name, chartValue.value, Colors.blue))
+          .map((chartValue) =>
+              ChartData(chartValue.name, chartValue.value, Colors.blue))
           .toList();
       return chartDataList;
     }
 
-    // final List<chart_data.ChartData> _chartDataList = [
-    //   chart_data.ChartData('David', 25, Colors.blue),
-    //   chart_data.ChartData('Steve', 38, Colors.blue),
-    //   chart_data.ChartData('Jack', 34, Colors.blue),
-    //   chart_data.ChartData('Others', 52, Colors.blue)
-    // ];
+    TooltipBehavior tooltip = TooltipBehavior(
+        enable: true,
+        shouldAlwaysShow: true,
+        builder: (dynamic data, dynamic point, dynamic series, int pointIndex,
+            int seriesIndex) {
+          return Container(
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(4)),
+              padding: EdgeInsets.symmetric(vertical: 4, horizontal: 6),
+              child: Text("€ ${data.y}", style: TextStyle(fontSize: 18)));
+        });
 
     return FutureBuilder(
       future: refresh(),
-      builder: (BuildContext context,
-          AsyncSnapshot<List<chart_data.ChartData>> snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<List<ChartData>> snapshot) {
         if (snapshot.connectionState == ConnectionState.done)
           return new SfCircularChart(
             title: ChartTitle(text: 'Half yearly sales analysis'),
             legend: Legend(isVisible: true),
+            tooltipBehavior: tooltip,
             series: <CircularSeries>[
               // Render pie chart
-              PieSeries<chart_data.ChartData, String>(
+              PieSeries<ChartData, String>(
                 dataSource: snapshot.data,
-                xValueMapper: (chart_data.ChartData data, _) => data.x,
-                yValueMapper: (chart_data.ChartData data, _) => data.y,
+                enableTooltip: true,
+                xValueMapper: (ChartData data, _) => data.x,
+                yValueMapper: (ChartData data, _) => data.y,
                 dataLabelSettings: DataLabelSettings(isVisible: true),
+                //dataLabelMapper: (ChartData data, _) => data.x,
                 // pointColorMapper: (chart_data.ChartData data, _) => data.color,
               )
             ],

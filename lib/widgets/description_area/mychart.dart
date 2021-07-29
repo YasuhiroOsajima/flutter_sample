@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'dart:convert';
 
-import '../../models/chart.dart' as chart;
-import '../../mock.dart' as mockJson;
+import 'package:myapp/models/chart.dart' as chart;
+import 'package:myapp/mock.dart' as mockJson;
 
 class ChartData {
   ChartData(this.x, this.y, this.color);

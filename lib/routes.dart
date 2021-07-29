@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'pages/home.dart' as homePage;
-import 'pages/login.dart' as loginPage;
+import 'package:myapp/pages/home.dart' as homePage;
+import 'package:myapp/pages/login.dart' as loginPage;
 
 Map<String, WidgetBuilder> pageRoutes = {
   '/': (BuildContext context) => homePage.MyHomePage(),

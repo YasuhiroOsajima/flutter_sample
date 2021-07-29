@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/drawer.dart' as drawer;
-import '../widgets/logout_button.dart' as logout_button;
-import '../widgets/table_area/table_area.dart' as table_area;
-import '../widgets/description_area/description_area.dart' as description_area;
-import '../layout.dart' as layout;
+import 'package:myapp/widgets/drawer.dart' as drawer;
+import 'package:myapp/widgets/logout_button.dart' as logout_button;
+import 'package:myapp/widgets/table_area/table_area.dart' as table_area;
+import 'package:myapp/widgets/description_area/description_area.dart'
+    as description_area;
+import 'package:myapp/layout.dart' as layout;
 
 class MyHomePage extends StatelessWidget {
   @override

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'buttons.dart' as buttons;
-import 'search.dart' as search;
-import '../../../layout.dart' as layout;
+import 'package:myapp/widgets/table_area/search_space/buttons.dart' as buttons;
+import 'package:myapp/widgets/table_area/search_space/search.dart' as search;
+import 'package:myapp/layout.dart' as layout;
 
 class SearchSpace extends StatelessWidget {
   @override

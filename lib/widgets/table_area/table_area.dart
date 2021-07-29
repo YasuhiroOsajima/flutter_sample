@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../style/myboxdecoration.dart' as myboxdecoration;
-import 'search_space/search_space.dart' as search;
-import 'datatable_space/datatable.dart' as datatable;
+import 'package:myapp/style/myboxdecoration.dart' as myboxdecoration;
+import 'package:myapp/widgets/table_area/search_space/search_space.dart'
+    as search;
+import 'package:myapp/widgets/table_area/datatable_space/datatable.dart'
+    as datatable;
 
 class TableArea extends StatelessWidget {
   @override

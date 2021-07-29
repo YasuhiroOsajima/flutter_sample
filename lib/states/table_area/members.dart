@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 
-import '../../models/member.dart' as member;
-import '../../mock.dart' as mockJson;
+import 'package:myapp/models/member.dart' as member;
+import 'package:myapp/mock.dart' as mockJson;
 
 class Members with ChangeNotifier {
   List<member.Member> memberList = [];

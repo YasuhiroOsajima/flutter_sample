@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../style/myboxdecoration.dart' as myboxdecoration;
-import 'description.dart' as description;
-import 'mychart.dart' as mychart;
+import 'package:myapp/style/myboxdecoration.dart' as myboxdecoration;
+import 'package:myapp/widgets/description_area/description.dart' as description;
+import 'package:myapp/widgets/description_area/mychart.dart' as mychart;
 
 class DescriptionArea extends StatelessWidget {
   @override

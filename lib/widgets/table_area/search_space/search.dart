@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../states/table_area/table_search.dart' as table_search;
-import '../../../states/table_area/members.dart' as members;
+import 'package:myapp/states/table_area/table_search.dart' as table_search;
+import 'package:myapp/states/table_area/members.dart' as members;
 
 class MySearch extends StatelessWidget {
   @override

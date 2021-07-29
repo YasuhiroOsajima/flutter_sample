@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'create_dialog.dart' as create_dialog;
+import 'package:myapp/widgets/table_area/search_space/create_dialog.dart'
+    as create_dialog;
 
 class MyButtons extends StatelessWidget {
   @override

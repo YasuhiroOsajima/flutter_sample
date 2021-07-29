@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../routes.dart' as routes;
-
 class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

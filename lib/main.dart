@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'states/table_area/members.dart' as members;
-import 'states/table_area/row_selected.dart' as row_selected;
-import 'states/table_area/table_sort.dart' as table_sort;
-import 'states/table_area/table_search.dart' as table_search;
-import 'routes.dart' as routes;
+import 'package:myapp/states/table_area/members.dart' as members;
+import 'package:myapp/states/table_area/row_selected.dart' as row_selected;
+import 'package:myapp/states/table_area/table_sort.dart' as table_sort;
+import 'package:myapp/states/table_area/table_search.dart' as table_search;
+import 'package:myapp/routes.dart' as routes;
 
 void main() {
   runApp(

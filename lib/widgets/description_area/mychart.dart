@@ -53,12 +53,12 @@ class MyChart extends StatelessWidget {
           return new SfCircularChart(
             title: ChartTitle(text: 'Half yearly sales analysis'),
             legend: Legend(isVisible: true),
-            tooltipBehavior: tooltip,
+            //tooltipBehavior: tooltip,
             series: <CircularSeries>[
               // Render pie chart
               PieSeries<ChartData, String>(
                 dataSource: snapshot.data,
-                enableTooltip: true,
+                //enableTooltip: true,
                 xValueMapper: (ChartData data, _) => data.x,
                 yValueMapper: (ChartData data, _) => data.y,
                 dataLabelSettings: DataLabelSettings(isVisible: true),

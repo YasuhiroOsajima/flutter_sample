@@ -18,7 +18,9 @@ class LogoutButton extends StatelessWidget {
           ),
           side: const BorderSide(),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed('/login');
+        },
       ),
     );
   }
